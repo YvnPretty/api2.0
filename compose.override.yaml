@@ -1,0 +1,26 @@
+services:
+  laravel:
+    environment:
+      MONGODB_URI: "mongodb://devroot:devpass@mongo:27017/api_libros?authSource=admin"
+      MONGODB_DATABASE: "api_libros"
+    restart: unless-stopped
+    ports: !override
+      - "127.0.0.1:8000:8000"
+  angular:
+    restart: unless-stopped
+    ports: !override
+      - "127.0.0.1:4201:4200"
+  mongo:
+    ports: !override
+      - "127.0.0.1:27018:27017"
+  portainer:
+    image: portainer/portainer-ce:lts
+    container_name: portainer
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+volumes:
+  portainer_data:

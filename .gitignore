@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+**/vendor/
+**/node_modules/
+**/dist/
+**/.angular/
+**/.DS_Store
+
+# Archivos locales que no forman parte de la entrega
+/portainer-acceso.txt
+/backend-respaldo-plantilla/
+/respaldo-*.tar.gz
+*.log
